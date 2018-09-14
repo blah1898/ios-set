@@ -55,18 +55,25 @@ class SetGame {
     }
 
     init() {
-        deck = SetGame.generateDeck()
+        deck = SetGame.generateDeck().shuffle()
     }
 }
 
 extension Array {
-    func shuffle() {
-
+    func shuffle() -> Array<Element> {
+        var shuffled = self;
+        
+        for index in shuffled.indices {
+            let indexToSwap = Int.random(from: index + 1, to: self.count)
+            shuffled.swapAt(index, indexToSwap)
+        }
+        
+        return shuffled
     }
 }
 
 extension Int {
-    static func random(range: ClosedRange<Int>) -> Int {
-        return Int(arc4random_uniform(UInt32(range.upperBound))) - range.lowerBound
+    static func random(from lowerBound: Int, to upperBound: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(upperBound))) + lowerBound
     }
 }
