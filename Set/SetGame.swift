@@ -11,7 +11,7 @@ import Foundation
 class SetGame {
     
     private(set)    var deck = [Card]()
-    private         var hand = [Card]()
+    private(set)    var hand = [Card]()
     
     var deckCount : Int {
         return deck.count
@@ -63,7 +63,7 @@ extension Array {
     func shuffle() -> Array<Element> {
         var shuffled = self;
         
-        for index in shuffled.indices {
+        for index in 0..<(shuffled.count-1) {
             let indexToSwap = Int.random(from: index + 1, to: self.count)
             shuffled.swapAt(index, indexToSwap)
         }
@@ -74,6 +74,6 @@ extension Array {
 
 extension Int {
     static func random(from lowerBound: Int, to upperBound: Int) -> Int {
-        return Int(arc4random_uniform(UInt32(upperBound))) + lowerBound
+        return Int(arc4random_uniform(UInt32(upperBound - lowerBound))) + lowerBound
     }
 }
