@@ -12,6 +12,7 @@ class SetGame {
     
     private(set)    var deck = [Card]()
     private(set)    var hand = [Card]()
+    private(set)    var selected = [Int]()
     
     var deckCount : Int {
         return deck.count
@@ -22,15 +23,44 @@ class SetGame {
     }
     
     func pickCard(at index: Int) {
+        if selected.count >= 3 {
+            selected = []
+        }
         
+        selected.append(index)
+        
+        //TODO: check for match
+        
+        if selected.count >= 3 {
+            selected = [];
+        }
     }
     
     func reset() {
-        // TODO
+        hand = []
+        selected = []
+        deck = SetGame.generateDeck().shuffle()
+        initialDeal()
     }
     
     func deal() {
-        // TODO
+        if !self.canDeal {
+            return;
+        }
+        
+        3.times {
+            if let card = deck.popLast() {
+                hand.append(card);
+            }
+        }
+    }
+    
+    private func initialDeal() {
+        12.times {
+            if let card = deck.popLast() {
+                hand.append(card);
+            }
+        }
     }
     
     private static func generateDeck() -> [Card] {
@@ -56,6 +86,8 @@ class SetGame {
 
     init() {
         deck = SetGame.generateDeck().shuffle()
+        
+        initialDeal()
     }
 }
 
@@ -75,5 +107,15 @@ extension Array {
 extension Int {
     static func random(from lowerBound: Int, to upperBound: Int) -> Int {
         return Int(arc4random_uniform(UInt32(upperBound - lowerBound))) + lowerBound
+    }
+    
+    func times(do run: (Int) -> Void) {
+        for i in 0..<self {
+            run(i)
+        }
+    }
+    
+    func times(do run: () -> Void) {
+        self.times {_ in run()}
     }
 }
