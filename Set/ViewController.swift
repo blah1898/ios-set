@@ -33,6 +33,9 @@ class ViewController: UIViewController {
     let game = SetGame();
     
     @IBAction func tappedCard(_ sender: UIButton) {
+        if let index = cardButtons.index(of: sender) {
+            game.pickCard(at: index)
+        }
         updateViewFromModel()
     }
     
@@ -91,6 +94,16 @@ class ViewController: UIViewController {
                 
                 button.setAttributedTitle(attributedString, for: UIControlState.normal)
                 button.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+                
+                if game.selected.contains(index) {
+                    button.layer.shadowRadius = 5.0
+                    button.layer.shadowOpacity = 1.0
+                    button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+                    button.layer.shadowColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                    button.layer.masksToBounds = false
+                } else {
+                    button.layer.shadowOpacity = 0.0
+                }
             } else {
                 button.setAttributedTitle(NSAttributedString(string: ""), for: UIControlState.normal)
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)

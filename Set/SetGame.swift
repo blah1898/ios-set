@@ -23,6 +23,12 @@ class SetGame {
     }
     
     func pickCard(at index: Int) {
+        // If we're selecting an already selected element, remove it from selection
+        if let alreadyExistingIndex = selected.index(of: index) {
+            selected.remove(at: alreadyExistingIndex)
+            return
+        }
+        
         if selected.count >= 3 {
             selected = []
         }
