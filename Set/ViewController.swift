@@ -92,7 +92,7 @@ class ViewController: UIViewController {
                 button.setAttributedTitle(attributedString, for: UIControlState.normal)
                 button.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
             } else {
-                button.titleLabel?.text = ""
+                button.setAttributedTitle(NSAttributedString(string: ""), for: UIControlState.normal)
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
                 continue
             }

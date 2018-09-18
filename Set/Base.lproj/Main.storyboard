@@ -28,7 +28,6 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8K0-Ic-zzB">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Z0-nD-g5x"/>
                                                 </connections>
@@ -36,7 +35,6 @@
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgR-aQ-qeA">
                                                 <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7w-UZ-G8P"/>
                                                 </connections>
@@ -44,7 +42,6 @@
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOG-j0-KNW">
                                                 <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTs-rg-SrQ"/>
                                                 </connections>
@@ -52,7 +49,6 @@
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnd-Tj-n0h">
                                                 <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WLV-Oa-S0K"/>
                                                 </connections>
@@ -65,7 +61,6 @@
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nch-Xx-5wc">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PcF-yH-swS"/>
                                                 </connections>
@@ -73,7 +68,6 @@
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="buN-Nx-ufc">
                                                 <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bBe-qD-yey"/>
                                                 </connections>
@@ -81,7 +75,6 @@
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WHz-H4-3Ua">
                                                 <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xr2-Gh-PD1"/>
                                                 </connections>
@@ -89,7 +82,6 @@
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OX8-s2-9dd">
                                                 <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X9o-7z-Uaj"/>
                                                 </connections>
@@ -102,7 +94,6 @@
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mh6-xt-Tqt">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OIp-nt-gja"/>
                                                 </connections>
@@ -110,7 +101,6 @@
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6i-Uh-cnd">
                                                 <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iqs-84-Tdl"/>
                                                 </connections>
@@ -118,7 +108,6 @@
                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsU-5J-doP">
                                                 <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dTi-KF-UHd"/>
                                                 </connections>
@@ -126,7 +115,6 @@
                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GC-KO-6qn">
                                                 <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vMS-bV-KUG"/>
                                                 </connections>
@@ -139,7 +127,6 @@
                                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gs-SK-4LC">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vyI-A7-hNb"/>
                                                 </connections>
@@ -147,7 +134,6 @@
                                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8G-54-FJd">
                                                 <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dBD-mu-Jw4"/>
                                                 </connections>
@@ -155,7 +141,6 @@
                                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EY-kG-dhJ">
                                                 <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MnX-PG-84k"/>
                                                 </connections>
@@ -163,7 +148,6 @@
                                             <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v9G-82-Rcq">
                                                 <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Or6-we-ggu"/>
                                                 </connections>
@@ -176,7 +160,6 @@
                                             <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HoF-bu-lq7">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qut-eH-Yu8"/>
                                                 </connections>
@@ -184,7 +167,6 @@
                                             <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hg-Ay-xKp">
                                                 <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dQj-8f-o0z"/>
                                                 </connections>
@@ -192,7 +174,6 @@
                                             <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9h-BX-jAu">
                                                 <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nh9-zG-avi"/>
                                                 </connections>
@@ -200,7 +181,6 @@
                                             <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqz-JL-DpJ">
                                                 <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bXm-Dd-hRh"/>
                                                 </connections>
@@ -213,7 +193,6 @@
                                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tw6-3D-yrn">
                                                 <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mUn-uo-aZ2"/>
                                                 </connections>
@@ -221,7 +200,6 @@
                                             <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6L-G1-e2T">
                                                 <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dnw-gb-WVJ"/>
                                                 </connections>
@@ -229,7 +207,6 @@
                                             <button opaque="NO" tag="22" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TG-kM-v4Z">
                                                 <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JTw-ho-DQq"/>
                                                 </connections>
@@ -237,7 +214,6 @@
                                             <button opaque="NO" tag="23" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I9h-o0-guY">
                                                 <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="30"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="▲▲▲"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pXN-3x-hUA"/>
                                                 </connections>
