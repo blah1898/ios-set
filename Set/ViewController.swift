@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     ]
 
     @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet weak var resetButton: UIButton!
     let game = SetGame();
     
     @IBAction func tappedCard(_ sender: UIButton) {
@@ -47,8 +48,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViewFromModel()
         cardButtons = cardButtons.sorted(by: {$0.tag < $1.tag})
+        updateViewFromModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,7 +96,8 @@ class ViewController: UIViewController {
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
                 continue
             }
-
         }
+        
+        resetButton.isEnabled = game.canDeal
     }
 }
