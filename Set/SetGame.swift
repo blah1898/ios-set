@@ -13,6 +13,7 @@ class SetGame {
     private(set)    var deck = [Card]()
     private(set)    var hand = [Card]()
     private(set)    var selected = [Int]()
+    private(set)    var lastMistake = [Int]()
     
     var deckCount : Int {
         return deck.count
@@ -23,6 +24,8 @@ class SetGame {
     }
     
     func pickCard(at index: Int) {
+        lastMistake = []
+        
         // If we're selecting an already selected element, remove it from selection
         if let alreadyExistingIndex = selected.index(of: index) {
             selected.remove(at: alreadyExistingIndex)
@@ -35,11 +38,67 @@ class SetGame {
         
         selected.append(index)
         
-        //TODO: check for match
+        if selected.count == 3 {
+            if checkIfMatch(hand[selected[0]], hand[selected[1]], hand[selected[2]]) {
+                print("\(selected[0]) \(selected[1]) \(selected[2]) match!")
+            }
+        }
         
         if selected.count >= 3 {
             selected = [];
         }
+    }
+    
+    func checkIfMatch(_ card1: Card, _ card2: Card, _ card3: Card) -> Bool{
+        var colorMatched    = false
+        var shadingMatched  = false
+        var symbolMatched    = false
+        var countMatched    = false
+        // Color
+        if card1.color == card2.color && card2.color == card3.color {
+            colorMatched = true
+        } else if card1.color != card2.color && card2.color != card3.color && card1.color != card3.color {
+            colorMatched = true
+        }
+        
+        if !colorMatched {
+            return false
+        }
+        
+        // Shading
+        if card1.shading == card2.shading && card2.shading == card3.shading {
+            shadingMatched = true
+        } else if card1.shading != card2.shading && card2.shading != card3.shading && card1.shading != card3.shading {
+            shadingMatched = true
+        }
+        
+        if !shadingMatched {
+            return false
+        }
+        
+        // symbol
+        if card1.symbol == card2.symbol && card2.symbol == card3.symbol {
+            symbolMatched = true
+        } else if card1.symbol != card2.symbol && card2.symbol != card3.symbol && card1.symbol != card3.symbol {
+            symbolMatched = true
+        }
+        
+        if !symbolMatched {
+            return false
+        }
+        
+        // Count
+        if card1.count == card2.count && card2.count == card3.count {
+            countMatched = true
+        } else if card1.count != card2.count && card2.count != card3.count && card1.count != card3.count {
+            countMatched = true
+        }
+        
+        if !countMatched {
+            return false
+        }
+        
+        return true
     }
     
     func reset() {
