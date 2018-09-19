@@ -34,6 +34,11 @@ class ViewController: UIViewController {
     
     let game = SetGame();
     
+    @IBAction func tappedCheat(_ sender: Any) {
+        game.getHint()
+        updateViewFromModel()
+    }
+    
     @IBAction func tappedCard(_ sender: UIButton) {
         if let index = cardButtons.index(of: sender) {
             game.pickCard(at: index)
@@ -114,6 +119,12 @@ class ViewController: UIViewController {
                     button.layer.shadowOpacity = 1.0
                     button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
                     button.layer.shadowColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                    button.layer.masksToBounds = false
+                } else if game.hint.contains(index) {
+                    button.layer.shadowRadius = 5.0
+                    button.layer.shadowOpacity = 1.0
+                    button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+                    button.layer.shadowColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
                     button.layer.masksToBounds = false
                 } else {
                     button.layer.shadowOpacity = 0.0

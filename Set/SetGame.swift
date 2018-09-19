@@ -16,6 +16,7 @@ class SetGame {
     private(set)    var selected = [Int]()
     private(set)    var lastMistake = [Int]()
     private(set)    var lastMatch = [Int]()
+    private(set)    var hint = [Int]()
     
     var deckCount : Int {
         return deck.count
@@ -46,7 +47,27 @@ class SetGame {
         }
         
         if selected.count >= 3 {
-            selected = [];
+            selected = []
+            hint = []
+        }
+    }
+    
+    func getHint() {
+        for card1 in hand.indices {
+            for card2 in hand.indices {
+                if card1 == card2 {
+                    continue
+                }
+                for card3 in hand.indices {
+                    if card2 == card3 || card1 == card3 {
+                        continue
+                    }
+                    if checkIfMatch(hand[card1], hand[card2], hand[card3]) {
+                        hint = [card1, card2, card3]
+                        return
+                    }
+                }
+            }
         }
     }
     
@@ -107,6 +128,7 @@ class SetGame {
         selected = []
         lastMistake = []
         lastMatch = []
+        hint = []
         deck = SetGame.generateDeck().shuffle()
         initialDeal()
     }

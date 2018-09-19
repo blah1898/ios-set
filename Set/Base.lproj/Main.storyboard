@@ -246,14 +246,30 @@
                                         <rect key="frame" x="0.0" y="28.333333333333371" width="382" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mue-rs-8Mf">
-                                                <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="106" height="30"/>
                                                 <state key="normal" title="Deal 3 cards"/>
                                                 <connections>
                                                     <action selector="tappedDeal" destination="BYZ-38-t0r" eventType="touchUpInside" id="AhZ-jd-XHq"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sUe-c3-QZs">
+                                                <rect key="frame" x="138" y="0.33333333333337123" width="106" height="29.333333333333332"/>
+                                                <state key="normal">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Hint">
+                                                            <attributes>
+                                                                <font key="NSFont" size="15" name="LucidaGrande"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedCheat:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7IR-HI-eyL"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trd-aV-z2x">
-                                                <rect key="frame" x="207" y="0.0" width="175" height="30"/>
+                                                <rect key="frame" x="276" y="0.0" width="106" height="30"/>
                                                 <state key="normal" title="Restart"/>
                                                 <connections>
                                                     <action selector="tappedRestart" destination="BYZ-38-t0r" eventType="touchUpInside" id="deq-By-Xnh"/>
