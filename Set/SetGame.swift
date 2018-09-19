@@ -23,7 +23,7 @@ class SetGame {
     }
     
     var canDeal : Bool {
-        return deck.count > 0 && hand.filter{$0 != nil}.count < 24
+        return deck.count > 0 && (hand.filter{$0 != nil}.count - lastMatch.count) < 24
     }
     
     func removeLastMatch() {
@@ -33,7 +33,14 @@ class SetGame {
     }
     
     func pickCard(at index: Int) {
+        if (hand[index] == nil) {
+            return
+        }
         removeLastMatch()
+        if lastMatch.contains(index) {
+            lastMatch = [];
+            return;
+        }
         lastMistake = []
         lastMatch = []
         
