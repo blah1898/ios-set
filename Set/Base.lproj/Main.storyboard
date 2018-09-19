@@ -277,6 +277,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="deckLabel" destination="sOO-No-MYb" id="oX5-7H-twv"/>
                         <outlet property="resetButton" destination="Mue-rs-8Mf" id="h4n-vR-hsL"/>
                         <outletCollection property="cardButtons" destination="hnd-Tj-n0h" collectionClass="NSMutableArray" id="Q1p-t4-VuL"/>
                         <outletCollection property="cardButtons" destination="MOG-j0-KNW" collectionClass="NSMutableArray" id="zMv-Hn-HaD"/>

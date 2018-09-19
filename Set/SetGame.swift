@@ -12,8 +12,10 @@ class SetGame {
     
     private(set)    var deck = [Card]()
     private(set)    var hand = [Card]()
+    private(set)    var discardPile = [Card]()
     private(set)    var selected = [Int]()
     private(set)    var lastMistake = [Int]()
+    private(set)    var lastMatch = [Int]()
     
     var deckCount : Int {
         return deck.count
@@ -25,6 +27,7 @@ class SetGame {
     
     func pickCard(at index: Int) {
         lastMistake = []
+        lastMatch = []
         
         // If we're selecting an already selected element, remove it from selection
         if let alreadyExistingIndex = selected.index(of: index) {
@@ -32,15 +35,13 @@ class SetGame {
             return
         }
         
-        if selected.count >= 3 {
-            selected = []
-        }
-        
         selected.append(index)
         
         if selected.count == 3 {
             if checkIfMatch(hand[selected[0]], hand[selected[1]], hand[selected[2]]) {
-                print("\(selected[0]) \(selected[1]) \(selected[2]) match!")
+                lastMatch = selected
+            } else {
+                lastMistake = selected
             }
         }
         
@@ -104,6 +105,8 @@ class SetGame {
     func reset() {
         hand = []
         selected = []
+        lastMistake = []
+        lastMatch = []
         deck = SetGame.generateDeck().shuffle()
         initialDeal()
     }

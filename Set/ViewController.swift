@@ -23,13 +23,15 @@ class ViewController: UIViewController {
     ]
     
     let shadings = [
-        Shading.light: 0.15,
-        Shading.medium: 0.6,
+        Shading.light: 0.1,
+        Shading.medium: 0.5,
         Shading.full: 1.0,
     ]
 
     @IBOutlet var cardButtons: [UIButton]!
+    @IBOutlet weak var deckLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
+    
     let game = SetGame();
     
     @IBAction func tappedCard(_ sender: UIButton) {
@@ -101,6 +103,18 @@ class ViewController: UIViewController {
                     button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
                     button.layer.shadowColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
                     button.layer.masksToBounds = false
+                } else if game.lastMistake.contains(index) {
+                    button.layer.shadowRadius = 5.0
+                    button.layer.shadowOpacity = 1.0
+                    button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+                    button.layer.shadowColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+                    button.layer.masksToBounds = false
+                } else if game.lastMatch.contains(index) {
+                    button.layer.shadowRadius = 5.0
+                    button.layer.shadowOpacity = 1.0
+                    button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+                    button.layer.shadowColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                    button.layer.masksToBounds = false
                 } else {
                     button.layer.shadowOpacity = 0.0
                 }
@@ -111,6 +125,7 @@ class ViewController: UIViewController {
             }
         }
         
+        deckLabel.text = "Deck: \(game.deck.count)"
         resetButton.isEnabled = game.canDeal
     }
 }
