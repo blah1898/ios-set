@@ -12,11 +12,11 @@ class SetGame {
     
     private(set)    var deck = [Card]()
     private(set)    var hand = [Card]()
-    private(set)    var discardPile = [Card]()
     private(set)    var selected = [Int]()
     private(set)    var lastMistake = [Int]()
     private(set)    var lastMatch = [Int]()
     private(set)    var hint = [Int]()
+    private(set)    var score = 0
     
     var deckCount : Int {
         return deck.count
@@ -26,7 +26,15 @@ class SetGame {
         return deck.count > 0 && hand.count < 24
     }
     
+    func removeLastMatch() {
+        let sorted  = lastMatch.sorted { $1 < $0 }
+        for index in sorted {
+            hand.remove(at: index)
+        }
+    }
+    
     func pickCard(at index: Int) {
+        removeLastMatch()
         lastMistake = []
         lastMatch = []
         
@@ -41,7 +49,11 @@ class SetGame {
         if selected.count == 3 {
             if checkIfMatch(hand[selected[0]], hand[selected[1]], hand[selected[2]]) {
                 lastMatch = selected
+                if !hint.containsSameElements(as: selected) {
+                    score += 3
+                }
             } else {
+                score -= 1
                 lastMistake = selected
             }
         }
@@ -53,6 +65,9 @@ class SetGame {
     }
     
     func getHint() {
+        removeLastMatch()
+        lastMistake = []
+        lastMatch = []
         for card1 in hand.indices {
             for card2 in hand.indices {
                 if card1 == card2 {
@@ -138,6 +153,11 @@ class SetGame {
             return;
         }
         
+        removeLastMatch()
+        lastMistake = []
+        lastMatch = []
+        hint = []
+        
         3.times {
             if let card = deck.popLast() {
                 hand.append(card);
@@ -191,6 +211,12 @@ extension Array {
         }
         
         return shuffled
+    }
+}
+
+extension Array where Element : Comparable {
+    func containsSameElements(as other: [Element]) -> Bool {
+        return self.count == other.count && self.sorted() == other.sorted()
     }
 }
 

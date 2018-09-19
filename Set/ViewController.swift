@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     ]
     
     let shadings = [
-        Shading.light: 0.1,
+        Shading.light: 0.2,
         Shading.medium: 0.5,
         Shading.full: 1.0,
     ]
