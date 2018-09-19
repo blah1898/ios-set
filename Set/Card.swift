@@ -14,9 +14,6 @@ struct Card {
     let count:      Count
     let symbol:     Symbol
     
-    var isFaceUp    = false
-    var isInSet     = false
-    
     init(color: Color, shading: Shading, count: Count, symbol: Symbol) {
         self.color = color
         self.shading = shading

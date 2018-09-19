@@ -11,7 +11,7 @@ import Foundation
 class SetGame {
     
     private(set)    var deck = [Card]()
-    private(set)    var hand = [Card]()
+    private(set)    var hand = [Card?](repeating: nil, count: 24)
     private(set)    var selected = [Int]()
     private(set)    var lastMistake = [Int]()
     private(set)    var lastMatch = [Int]()
@@ -23,13 +23,12 @@ class SetGame {
     }
     
     var canDeal : Bool {
-        return deck.count > 0 && hand.count < 24
+        return deck.count > 0 && hand.filter{$0 != nil}.count < 24
     }
     
     func removeLastMatch() {
-        let sorted  = lastMatch.sorted { $1 < $0 }
-        for index in sorted {
-            hand.remove(at: index)
+        for index in lastMatch {
+            hand[index] = nil
         }
     }
     
@@ -47,7 +46,7 @@ class SetGame {
         selected.append(index)
         
         if selected.count == 3 {
-            if checkIfMatch(hand[selected[0]], hand[selected[1]], hand[selected[2]]) {
+            if checkIfMatch(hand[selected[0]]!, hand[selected[1]]!, hand[selected[2]]!) {
                 lastMatch = selected
                 if !hint.containsSameElements(as: selected) {
                     score += 3
@@ -69,15 +68,24 @@ class SetGame {
         lastMistake = []
         lastMatch = []
         for card1 in hand.indices {
+            if hand[card1] == nil {
+                continue
+            }
             for card2 in hand.indices {
+                if hand[card2] == nil {
+                    continue
+                }
                 if card1 == card2 {
                     continue
                 }
                 for card3 in hand.indices {
+                    if hand[card3] == nil {
+                        continue
+                    }
                     if card2 == card3 || card1 == card3 {
                         continue
                     }
-                    if checkIfMatch(hand[card1], hand[card2], hand[card3]) {
+                    if checkIfMatch(hand[card1]!, hand[card2]!, hand[card3]!) {
                         hint = [card1, card2, card3]
                         return
                     }
@@ -139,7 +147,7 @@ class SetGame {
     }
     
     func reset() {
-        hand = []
+        hand = [Card?](repeating: nil, count: 24)
         selected = []
         lastMistake = []
         lastMatch = []
@@ -160,7 +168,7 @@ class SetGame {
         
         3.times {
             if let card = deck.popLast() {
-                hand.append(card);
+                addToHand(card: card);
             }
         }
     }
@@ -168,7 +176,7 @@ class SetGame {
     private func initialDeal() {
         12.times {
             if let card = deck.popLast() {
-                hand.append(card);
+                addToHand(card: card)
             }
         }
     }
@@ -192,6 +200,15 @@ class SetGame {
         }
         
         return newDeck
+    }
+    
+    func addToHand(card: Card) {
+        for (index, element) in hand.enumerated() {
+            if (element == nil) {
+                hand[index] = card
+                return
+            }
+        }
     }
 
     init() {

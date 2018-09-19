@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     let shadings = [
         Shading.light: 0.2,
-        Shading.medium: 0.5,
+        Shading.medium: 0.7,
         Shading.full: 1.0,
     ]
 
@@ -124,7 +124,7 @@ class ViewController: UIViewController {
                     button.layer.shadowRadius = 5.0
                     button.layer.shadowOpacity = 1.0
                     button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-                    button.layer.shadowColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+                    button.layer.shadowColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
                     button.layer.masksToBounds = false
                 } else {
                     button.layer.shadowOpacity = 0.0
