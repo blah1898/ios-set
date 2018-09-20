@@ -72,6 +72,7 @@ class SetGame {
     
     func getHint() {
         removeLastMatch()
+        lastMatch = []
         hint = findPossibleMatch() ?? []
     }
     
@@ -165,11 +166,13 @@ class SetGame {
             return;
         }
         
+        removeLastMatch()
+        
         if findPossibleMatch() != nil {
             score -= 1
         }
         
-        removeLastMatch()
+
         lastMistake = []
         lastMatch = []
         hint = []

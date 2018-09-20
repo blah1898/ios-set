@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Card {
+struct Card : Equatable {
     let color:      Color
     let shading:    Shading
     let count:      Count
