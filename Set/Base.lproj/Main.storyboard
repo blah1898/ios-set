@@ -295,6 +295,7 @@
                     <connections>
                         <outlet property="deckLabel" destination="sOO-No-MYb" id="oX5-7H-twv"/>
                         <outlet property="resetButton" destination="Mue-rs-8Mf" id="h4n-vR-hsL"/>
+                        <outlet property="scoreLabel" destination="ljm-BZ-V6V" id="KRD-9f-TAa"/>
                         <outletCollection property="cardButtons" destination="hnd-Tj-n0h" collectionClass="NSMutableArray" id="Q1p-t4-VuL"/>
                         <outletCollection property="cardButtons" destination="MOG-j0-KNW" collectionClass="NSMutableArray" id="zMv-Hn-HaD"/>
                         <outletCollection property="cardButtons" destination="QgR-aQ-qeA" collectionClass="NSMutableArray" id="oe9-68-PNi"/>

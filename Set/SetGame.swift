@@ -104,7 +104,7 @@ class SetGame {
     func checkIfMatch(_ card1: Card, _ card2: Card, _ card3: Card) -> Bool{
         var colorMatched    = false
         var shadingMatched  = false
-        var symbolMatched    = false
+        var symbolMatched   = false
         var countMatched    = false
         // Color
         if card1.color == card2.color && card2.color == card3.color {

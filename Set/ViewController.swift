@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     @IBOutlet var cardButtons: [UIButton]!
     @IBOutlet weak var deckLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     let game = SetGame();
     
@@ -102,30 +103,23 @@ class ViewController: UIViewController {
                 button.setAttributedTitle(attributedString, for: UIControlState.normal)
                 button.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
                 
+                button.layer.shadowRadius = 5.0
+                button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+                button.layer.masksToBounds = false
+                
                 if game.selected.contains(index) {
-                    button.layer.shadowRadius = 5.0
                     button.layer.shadowOpacity = 1.0
-                    button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
                     button.layer.shadowColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-                    button.layer.masksToBounds = false
                 } else if game.lastMistake.contains(index) {
-                    button.layer.shadowRadius = 5.0
                     button.layer.shadowOpacity = 1.0
-                    button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
                     button.layer.shadowColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-                    button.layer.masksToBounds = false
+
                 } else if game.lastMatch.contains(index) {
-                    button.layer.shadowRadius = 5.0
                     button.layer.shadowOpacity = 1.0
-                    button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
                     button.layer.shadowColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-                    button.layer.masksToBounds = false
                 } else if game.hint.contains(index) {
-                    button.layer.shadowRadius = 5.0
                     button.layer.shadowOpacity = 1.0
-                    button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
                     button.layer.shadowColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-                    button.layer.masksToBounds = false
                 } else {
                     button.layer.shadowOpacity = 0.0
                 }
@@ -137,6 +131,7 @@ class ViewController: UIViewController {
         }
         
         deckLabel.text = "Deck: \(game.deck.count)"
+        scoreLabel.text = "Score: \(game.score)"
         resetButton.isEnabled = game.canDeal
     }
 }
