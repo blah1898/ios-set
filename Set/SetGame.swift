@@ -72,6 +72,10 @@ class SetGame {
     
     func getHint() {
         removeLastMatch()
+        hint = findPossibleMatch() ?? []
+    }
+    
+    private func findPossibleMatch() -> [Int]? {
         let filtered = hand.enumerated().filter { $0.element != nil}
         lastMistake = []
         lastMatch = []
@@ -85,12 +89,12 @@ class SetGame {
                         continue
                     }
                     if checkIfMatch(hand[card1]!, hand[card2]!, hand[card3]!) {
-                        hint = [card1, card2, card3]
-                        return
+                        return [card1, card2, card3]
                     }
                 }
             }
         }
+        return nil
     }
     
     func checkIfMatch(_ card1: Card, _ card2: Card, _ card3: Card) -> Bool{
@@ -161,12 +165,16 @@ class SetGame {
             return;
         }
         
+        if findPossibleMatch() != nil {
+            score -= 1
+        }
+        
         removeLastMatch()
         lastMistake = []
         lastMatch = []
         hint = []
         
-        for _ in 0...3 {
+        for _ in 1...3 {
             if let card = deck.popLast() {
                 addToHand(card: card);
             }
@@ -174,7 +182,7 @@ class SetGame {
     }
     
     private func initialDeal() {
-        for _ in 0...12 {
+        for _ in 1...12 {
             if let card = deck.popLast() {
                 addToHand(card: card)
             }
