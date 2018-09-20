@@ -23,9 +23,9 @@ class ViewController: UIViewController {
     ]
     
     let shadings = [
-        Shading.light: 0.2,
-        Shading.medium: 0.7,
-        Shading.full: 1.0,
+        Shading.light: 4.0,
+        Shading.medium: 12.0,
+        Shading.full: 0,
     ]
 
     @IBOutlet var cardButtons: [UIButton]!
@@ -91,11 +91,12 @@ class ViewController: UIViewController {
                     count = 3
                 }
                 
-                let shadedColor = color.withAlphaComponent(CGFloat(shading))
+                let shadedColor = color//.withAlphaComponent(CGFloat(shading))
                 let countedString = String(repeating: symbol, count: count)
                 
-                let attributes = [
-                    NSAttributedStringKey.foregroundColor: shadedColor
+                let attributes : [NSAttributedStringKey : Any] = [
+                    NSAttributedStringKey.foregroundColor: shadedColor,
+                    NSAttributedStringKey.strokeWidth: shading
                 ]
                 
                 let attributedString = NSAttributedString(string: countedString, attributes: attributes)

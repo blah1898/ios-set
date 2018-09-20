@@ -72,23 +72,15 @@ class SetGame {
     
     func getHint() {
         removeLastMatch()
+        let filtered = hand.enumerated().filter { $0.element != nil}
         lastMistake = []
         lastMatch = []
-        for card1 in hand.indices {
-            if hand[card1] == nil {
-                continue
-            }
-            for card2 in hand.indices {
-                if hand[card2] == nil {
-                    continue
-                }
+        for (card1, _) in filtered {
+            for (card2, _) in filtered {
                 if card1 == card2 {
                     continue
                 }
-                for card3 in hand.indices {
-                    if hand[card3] == nil {
-                        continue
-                    }
+                for (card3, _) in filtered {
                     if card2 == card3 || card1 == card3 {
                         continue
                     }
@@ -155,6 +147,7 @@ class SetGame {
     
     func reset() {
         hand = [Card?](repeating: nil, count: 24)
+        score = 0
         selected = []
         lastMistake = []
         lastMatch = []
@@ -173,7 +166,7 @@ class SetGame {
         lastMatch = []
         hint = []
         
-        3.times {
+        for _ in 0...3 {
             if let card = deck.popLast() {
                 addToHand(card: card);
             }
@@ -181,7 +174,7 @@ class SetGame {
     }
     
     private func initialDeal() {
-        12.times {
+        for _ in 0...12 {
             if let card = deck.popLast() {
                 addToHand(card: card)
             }
@@ -210,11 +203,8 @@ class SetGame {
     }
     
     func addToHand(card: Card) {
-        for (index, element) in hand.enumerated() {
-            if (element == nil) {
-                hand[index] = card
-                return
-            }
+        if let index  = hand.index(where: { $0 == nil }) {
+            hand[index] = card
         }
     }
 
@@ -248,14 +238,5 @@ extension Int {
     static func random(from lowerBound: Int, to upperBound: Int) -> Int {
         return Int(arc4random_uniform(UInt32(upperBound - lowerBound))) + lowerBound
     }
-    
-    func times(do run: (Int) -> Void) {
-        for i in 0..<self {
-            run(i)
-        }
-    }
-    
-    func times(do run: () -> Void) {
-        self.times {_ in run()}
-    }
+
 }
