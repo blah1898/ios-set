@@ -77,25 +77,38 @@ class SetGame {
     }
     
     private func findPossibleMatch() -> [Int]? {
-        let filtered = hand.enumerated().filter { $0.element != nil}
-        lastMistake = []
-        lastMatch = []
-        for (card1, _) in filtered {
-            for (card2, _) in filtered {
-                if card1 == card2 {
-                    continue
+        var match = [Int]()
+        forEachInHand { index1, card1 in
+            if match != [] {
+                return
+            }
+            
+            forEachInHand { index2, card2 in
+                if index1 == index2 {
+                    return
                 }
-                for (card3, _) in filtered {
-                    if card2 == card3 || card1 == card3 {
-                        continue
+                
+                if match != [] {
+                    return
+                }
+                forEachInHand { index3, card3 in
+                    if match != [] {
+                        return
                     }
-                    if checkIfMatch(hand[card1]!, hand[card2]!, hand[card3]!) {
-                        return [card1, card2, card3]
+                    
+                    if index2 == index3 || index1 == index3 {
+                        return
+                    }
+                    
+                    if checkIfMatch(card1, card2, card3) {
+                        match = [index1, index2, index3]
+                        return
                     }
                 }
             }
         }
-        return nil
+	
+        return match
     }
     
     func checkIfMatch(_ card1: Card, _ card2: Card, _ card3: Card) -> Bool{
@@ -150,6 +163,11 @@ class SetGame {
         return true
     }
     
+    func forEachInHand(_ perform: (Int, Card) -> () ) {
+        let realHand = hand.enumerated().filter {$0.element != nil}.map{($0.offset, $0.element!)}
+        realHand.forEach(perform)
+    }
+    
     func reset() {
         hand = [Card?](repeating: nil, count: 24)
         score = 0
@@ -157,7 +175,7 @@ class SetGame {
         lastMistake = []
         lastMatch = []
         hint = []
-        deck = SetGame.generateDeck().shuffle()
+        deck = SetGame.generateDeck().shuffled()
         initialDeal()
     }
     
@@ -194,7 +212,7 @@ class SetGame {
     
     private static func generateDeck() -> [Card] {
         var newDeck = [Card]()
-        
+      
         let colorCases: [Color] = [.black, .red, .blue]
         let shadingCases: [Shading] = [.light, .medium, .full]
         let countCases: [Count] = [.one, .two, .three]
@@ -220,14 +238,14 @@ class SetGame {
     }
 
     init() {
-        deck = SetGame.generateDeck().shuffle()
-        
+        deck = SetGame.generateDeck().shuffled()
+      
         initialDeal()
     }
 }
 
 extension Array {
-    func shuffle() -> Array<Element> {
+    func shuffled() -> Array<Element> {
         var shuffled = self;
         
         for index in 0..<(shuffled.count-1) {
@@ -249,5 +267,4 @@ extension Int {
     static func random(from lowerBound: Int, to upperBound: Int) -> Int {
         return Int(arc4random_uniform(UInt32(upperBound - lowerBound))) + lowerBound
     }
-
 }
