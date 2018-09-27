@@ -8,6 +8,4 @@
 
 import Foundation
 
-enum Symbol {
-    case circle, square, star
-}
+

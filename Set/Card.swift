@@ -9,6 +9,24 @@
 import Foundation
 
 struct Card : Equatable {
+    
+    enum Shading {
+        case light, medium, full
+    }
+    
+    enum Color {
+        case black, red, blue
+    }
+    
+    enum Count {
+        case one, two, three
+    }
+    
+    enum Symbol {
+        case circle, square, star
+    }
+
+    
     let color:      Color
     let shading:    Shading
     let count:      Count

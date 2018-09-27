@@ -8,6 +8,3 @@
 
 import Foundation
 
-enum Color {
-    case black, red, blue
-}

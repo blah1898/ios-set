@@ -8,6 +8,4 @@
 
 import Foundation
 
-enum Shading {
-    case light, medium, full
-}
+

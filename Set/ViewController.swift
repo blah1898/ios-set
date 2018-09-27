@@ -11,21 +11,21 @@ import UIKit
 class ViewController: UIViewController {
     
     let colors = [
-        Color.red: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1),
-        Color.black: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
-        Color.blue: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),
+        Card.Color.red: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1),
+        Card.Color.black: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+        Card.Color.blue: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),
     ]
     
     let symbols = [
-        Symbol.circle: "●",
-        Symbol.square: "■",
-        Symbol.star: "★",
+        Card.Symbol.circle: "●",
+        Card.Symbol.square: "■",
+        Card.Symbol.star: "★",
     ]
     
     let shadings = [
-        Shading.light: 4.0,
-        Shading.medium: 12.0,
-        Shading.full: 0,
+        Card.Shading.light: 4.0,
+        Card.Shading.medium: 12.0,
+        Card.Shading.full: 0,
     ]
 
     @IBOutlet var cardButtons: [UIButton]!
