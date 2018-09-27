@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import CoreGraphics
 
 class CardView : UIView {
     var card: Card? = nil {
@@ -30,8 +29,10 @@ class CardView : UIView {
         }
     }
     
-    private func shadingPattern() -> UIBezierpath {
+    private func shadingPattern() -> UIBezierPath {
+        let path = UIBezierPath()
         
+        return path
     }
     
     private func trianglePath() -> UIBezierPath {

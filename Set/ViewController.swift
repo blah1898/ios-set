@@ -80,16 +80,7 @@ class ViewController: UIViewController {
                 let color = colors[card.color]!
                 let shading = shadings[card.shading]!
                 let symbol = symbols[card.symbol]!
-                let count : Int
-                
-                switch card.count {
-                case .one:
-                    count = 1
-                case .two:
-                    count = 2
-                case .three:
-                    count = 3
-                }
+                let count = card.count.value
                 
                 let shadedColor = color//.withAlphaComponent(CGFloat(shading))
                 let countedString = String(repeating: symbol, count: count)

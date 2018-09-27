@@ -12,18 +12,37 @@ struct Card : Equatable {
     
     enum Shading {
         case light, medium, full
+        
+        static let all: [Shading] = [.light, .medium, .full]
     }
     
     enum Color {
         case black, red, blue
+        
+        static let all: [Color] = [.black, .red, .blue]
     }
     
     enum Count {
         case one, two, three
+        
+        static let all: [Count] = [.one, .two, .three]
+        
+        public var value: Int {
+            switch self {
+            case .one :
+                return 1
+            case .two:
+                return 2
+            case .three:
+                return 3
+            }
+        }
     }
     
     enum Symbol {
         case circle, square, star
+        
+        static let all: [Symbol] = [.circle, .square, .star]
     }
 
     

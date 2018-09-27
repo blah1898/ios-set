@@ -212,16 +212,11 @@ class SetGame {
     
     private static func generateDeck() -> [Card] {
         var newDeck = [Card]()
-      
-        let colorCases: [Card.Color] = [.black, .red, .blue]
-        let shadingCases: [Card.Shading] = [.light, .medium, .full]
-        let countCases: [Card.Count] = [.one, .two, .three]
-        let symbolCases: [Card.Symbol] = [.circle, .square, .star]
         
-        for color in colorCases {
-            for shading in shadingCases {
-                for count in countCases {
-                    for symbol in symbolCases {
+        for color in Card.Color.all {
+            for shading in Card.Shading.all {
+                for count in Card.Count.all {
+                    for symbol in Card.Symbol.all {
                         newDeck.append(Card(color: color, shading: shading, count: count, symbol: symbol))
                     }
                 }
