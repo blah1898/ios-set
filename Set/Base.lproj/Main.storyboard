@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,29 +25,22 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4ya-hX-cgC">
                                         <rect key="frame" x="0.0" y="0.0" width="370" height="91.666666666666671"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8K0-Ic-zzB">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="91.666666666666671"/>
-                                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Z0-nD-g5x"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgR-aQ-qeA">
-                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="118" height="91.666666666666671"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v7w-UZ-G8P"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOG-j0-KNW">
-                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="91.666666666666671"/>
+                                                <rect key="frame" x="126" y="0.0" width="118" height="91.666666666666671"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTs-rg-SrQ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnd-Tj-n0h">
-                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
+                                                <rect key="frame" x="252" y="0.0" width="118" height="91.666666666666671"/>
                                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WLV-Oa-S0K"/>
@@ -226,6 +218,11 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S9b-yJ-UP8" customClass="CardView" customModule="Set" customModuleProvider="target">
+                                <rect key="frame" x="75" y="209" width="181" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pdj-K8-lnP">
                                 <rect key="frame" x="16" y="656.33333333333337" width="382" height="63.666666666666629"/>
                                 <subviews>
@@ -303,7 +300,6 @@
                         <outletCollection property="cardButtons" destination="hnd-Tj-n0h" collectionClass="NSMutableArray" id="Q1p-t4-VuL"/>
                         <outletCollection property="cardButtons" destination="MOG-j0-KNW" collectionClass="NSMutableArray" id="zMv-Hn-HaD"/>
                         <outletCollection property="cardButtons" destination="QgR-aQ-qeA" collectionClass="NSMutableArray" id="oe9-68-PNi"/>
-                        <outletCollection property="cardButtons" destination="8K0-Ic-zzB" collectionClass="NSMutableArray" id="33x-MW-Qm5"/>
                         <outletCollection property="cardButtons" destination="OX8-s2-9dd" collectionClass="NSMutableArray" id="jE3-fg-m30"/>
                         <outletCollection property="cardButtons" destination="WHz-H4-3Ua" collectionClass="NSMutableArray" id="twr-on-d4y"/>
                         <outletCollection property="cardButtons" destination="I9h-o0-guY" collectionClass="NSMutableArray" id="psi-HM-Bfl"/>
@@ -328,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="118.96551724137932"/>
+            <point key="canvasLocation" x="117.39130434782609" y="118.20652173913044"/>
         </scene>
     </scenes>
 </document>
