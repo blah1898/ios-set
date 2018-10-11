@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
-class CardView : UIView {
+class CardView : UIControl {
+    
+    let colors: [Card.Color: UIColor] = [
+        Card.Color.black: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+        Card.Color.blue: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),
+        Card.Color.red: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+    ]
     
     let star = [
         CGPoint(x: 0.5, y: 0),
@@ -26,6 +32,7 @@ class CardView : UIView {
     
     let margin = 12.0
     let spacing = 6.0
+    let shadingInterval = 5.0
     
     var card: Card? = nil {
         didSet {
@@ -38,29 +45,39 @@ class CardView : UIView {
         setNeedsDisplay()
     }
     
-    override func draw(_ rect: CGRect) {
-        
-        card = Card(color: .red, shading: .medium, count: .three, symbol: .star)
-        
-        let fullBg = UIBezierPath(rect: rect)
-        UIColor.black.setFill()
-        fullBg.fill()
-        
+    override func draw(_ rect: CGRect) {        
         if let drawingCard = card {
-            let symbolPath: UIBezierPath;
             
             let drawAreas = calculateDrawAreas(count: drawingCard.count.value)
             
-            print(drawAreas)
+            
+            colors[drawingCard.color]!.setStroke()
+            colors[drawingCard.color]!.setFill()
             
             for area in drawAreas {
-                let bg = UIBezierPath(rect: area)
-                UIColor.lightGray.setFill()
-                bg.fill()
+                let symbolPath: UIBezierPath;
+                switch(drawingCard.symbol) {
+                case .circle:
+                    symbolPath = circlePath(bounds: area)
+                case .square:
+                    symbolPath = squarePath(bounds: area)
+                case .star:
+                    symbolPath = starPath(bounds: area)
+                }
                 
-                let star = starPath(bounds: area)
-                UIColor.black.setStroke()
-                star.stroke()
+
+                switch(drawingCard.shading) {
+                case .full:
+                    symbolPath.fill()
+                case .medium:
+                    symbolPath.stroke()
+                    let shading = shadingPattern(bounds: area, interval: shadingInterval)
+                    symbolPath.addClip()
+                    shading.stroke()
+                    UIGraphicsGetCurrentContext()!.resetClip()
+                case .light:
+                    symbolPath.stroke()
+                }
             }
         }
 
@@ -69,16 +86,10 @@ class CardView : UIView {
     private func calculateDrawAreas(count: Int) -> [CGRect] {
         let horizontal = bounds.width > bounds.height
         
-        print(margin)
-        print(bounds)
-        
         let marginatedArea = CGRect(
             origin: CGPoint(x: bounds.minX + margin, y: bounds.minY + margin),
             size: CGSize(width: bounds.width - (margin * 2), height: bounds.height - (margin * 2))
         )
-        
-        print(marginatedArea)
-
         
         let longerSideLength = max(marginatedArea.width, marginatedArea.height)
         let shorterSideLength = min(marginatedArea.width, marginatedArea.height)
@@ -89,11 +100,7 @@ class CardView : UIView {
         let limitedSideLength = min(longerSideLimitedSideLength, shorterSideLimitedSideLength)
         let exceedingSideLength = max(longerSideLimitedSideLength, shorterSideLimitedSideLength)
         
-        let isShorterLimiting = shorterSideLength > longerSideLength
-        
-        
-        
-        
+        let isShorterLimiting = shorterSideLimitedSideLength < longerSideLimitedSideLength
         
         var areas = [CGRect]()
         let centeringMargin: CGFloat
@@ -101,7 +108,10 @@ class CardView : UIView {
         
         if (horizontal) {
             if (isShorterLimiting) {
-                centeringMargin = ((exceedingSideLength - (CGFloat(count) - 1) * spacing) / CGFloat(count)) / 2
+                let usedUpSpace = (CGFloat(count) - 1.0) * spacing + limitedSideLength * Double(count)
+                let remainingSpace = longerSideLength - usedUpSpace
+                centeringMargin = remainingSpace / 2
+
                 centeredArea = CGRect(
                     origin: CGPoint(x: marginatedArea.minX + centeringMargin, y: marginatedArea.minY),
                     size: CGSize(width: marginatedArea.width - centeringMargin * 2, height: marginatedArea.height)
@@ -119,10 +129,41 @@ class CardView : UIView {
                     origin: CGPoint(x: marginatedArea.minX , y: marginatedArea.minY + centeringMargin),
                     size: CGSize(width: marginatedArea.width, height: marginatedArea.height - centeringMargin * 2)
                 )
-                
+
                 for index in 0..<count {
                     areas.append(CGRect(
                         origin: CGPoint(x: centeredArea.origin.x + (limitedSideLength + spacing) * index, y: centeredArea.origin.y),
+                        size: CGSize(width: limitedSideLength, height: limitedSideLength)
+                    ))
+                }
+            }
+        } else {
+            if (isShorterLimiting) {
+                let usedUpSpace = (CGFloat(count) - 1.0) * spacing + limitedSideLength * Double(count)
+                let remainingSpace = longerSideLength - usedUpSpace
+                centeringMargin = remainingSpace / 2
+                
+                centeredArea = CGRect(
+                    origin: CGPoint(x: marginatedArea.minX, y: marginatedArea.minY + centeringMargin),
+                    size: CGSize(width: marginatedArea.width, height: marginatedArea.height - centeringMargin * 2)
+                )
+                
+                for index in 0..<count {
+                    areas.append(CGRect(
+                        origin: CGPoint(x: centeredArea.origin.x, y: centeredArea.origin.y + (limitedSideLength + spacing) * index),
+                        size: CGSize(width: limitedSideLength, height: limitedSideLength)
+                    ))
+                }
+            } else {
+                centeringMargin = (exceedingSideLength - limitedSideLength) / 2
+                centeredArea = CGRect(
+                    origin: CGPoint(x: marginatedArea.minX + centeringMargin , y: marginatedArea.minY),
+                    size: CGSize(width: marginatedArea.width - centeringMargin * 2, height: marginatedArea.height)
+                )
+
+                for index in 0..<count {
+                    areas.append(CGRect(
+                        origin: CGPoint(x: centeredArea.origin.x, y: centeredArea.origin.y + (limitedSideLength + spacing) * index),
                         size: CGSize(width: limitedSideLength, height: limitedSideLength)
                     ))
                 }
