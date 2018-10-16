@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-class CardView : UIControl {
+@IBDesignable
+class CardView : UIView {
     
     let colors: [Card.Color: UIColor] = [
         Card.Color.black: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
@@ -37,19 +38,20 @@ class CardView : UIControl {
     var card: Card? = nil {
         didSet {
             setNeedsDisplay()
+            setNeedsLayout()
         }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         setNeedsDisplay()
+        setNeedsLayout()
     }
     
     override func draw(_ rect: CGRect) {        
         if let drawingCard = card {
             
             let drawAreas = calculateDrawAreas(count: drawingCard.count.value)
-            
             
             colors[drawingCard.color]!.setStroke()
             colors[drawingCard.color]!.setFill()
@@ -84,6 +86,7 @@ class CardView : UIControl {
     }
     
     private func calculateDrawAreas(count: Int) -> [CGRect] {
+        // TODO: Burn this method
         let horizontal = bounds.width > bounds.height
         
         let marginatedArea = CGRect(
