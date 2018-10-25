@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
     
-
+    @IBOutlet weak var cardCollectionView: CardCollectionView!
+    
     let game = SetGame();
     
     @IBAction func tappedCheat(_ sender: Any) {
@@ -22,14 +23,14 @@ class ViewController: UIViewController {
         updateViewFromModel()
     }
     
-    @IBOutlet var cardViews: [CardView]!
-    
     @IBAction func tappedCard(_ sender: CardView) {
         print("Taped \(sender)")
+        /*
         if let index = cardViews.index(of: sender) {
             print("  index: \(index)")
             game.pickCard(at: index)
         }
+         */
         updateViewFromModel()
     }
     
@@ -51,7 +52,55 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    let colors: [Card.Color: UIColor] = [
+        Card.Color.black: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+        Card.Color.blue: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),
+        Card.Color.red: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+    ]
+    
     func updateViewFromModel() {
+        // Make card counts equal
+        let difference = cardCollectionView.subviews.count - game.hand.count
+        
+        if (difference < 0) {
+            // There's more cards in our hand than in view
+            for _ in 0..<(-difference) {
+                let newCard = CardView(frame: CGRect.zero)
+                newCard.isOpaque = false
+                newCard.layoutMargins = UIEdgeInsets(top: CGFloat(8.0), left: CGFloat(8.0), bottom: CGFloat(8.0), right: CGFloat(8.0))
+                cardCollectionView.addSubview(newCard)
+            }
+        } else {
+            // There's less cards in our hand than in view
+            for _ in 0..<difference {
+                cardCollectionView.subviews[0].removeFromSuperview()
+            }
+        }
+        
+        for (index, view) in cardCollectionView.subviews.enumerated() {
+            let cardView = view as! CardView
+            
+            let card = game.hand[index]
+            
+            // Symbol
+            cardView.symbol = card.symbol.rawValue
+            
+            // Count
+            cardView.count = card.count.value
+            
+            // Color
+            cardView.color = colors[card.color]!
+            
+            // Shading
+            cardView.shading = card.shading.rawValue
+            
+        }
+        
+        deckLabel.text = "Deck: \(game.deck.count)"
+        scoreLabel.text = "Score: \(game.score)"
+        resetButton.isEnabled = game.canDeal
+        
+        /*
         for (index, cardView) in cardViews.enumerated() {
             
             let optionalCard = game.hand.indices.contains(index)
@@ -84,5 +133,6 @@ class ViewController: UIViewController {
         deckLabel.text = "Deck: \(game.deck.count)"
         scoreLabel.text = "Score: \(game.score)"
         resetButton.isEnabled = game.canDeal
+        */
     }
 }

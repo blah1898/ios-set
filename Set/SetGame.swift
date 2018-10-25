@@ -11,7 +11,7 @@ import Foundation
 class SetGame {
     
     private(set)    var deck = [Card]()
-    private(set)    var hand = [Card?](repeating: nil, count: 24)
+    private(set)    var hand = [Card]()
     private(set)    var selected = [Int]()
     private(set)    var lastMistake = [Int]()
     private(set)    var lastMatch = [Int]()
@@ -23,17 +23,17 @@ class SetGame {
     }
     
     var canDeal : Bool {
-        return deck.count > 0 && (hand.filter{$0 != nil}.count - lastMatch.count) < 24
+        return deck.count > 0
     }
     
     func removeLastMatch() {
-        for index in lastMatch {
-            hand[index] = nil
+        for index in lastMatch.sorted(by: {$1 < $0}) {
+            hand.remove(at: index)
         }
     }
     
     func pickCard(at index: Int) {
-        if (hand[index] == nil) {
+        if (!hand.indices.contains(index)) {
             return
         }
         removeLastMatch()
@@ -53,7 +53,7 @@ class SetGame {
         selected.append(index)
         
         if selected.count == 3 {
-            if checkIfMatch(hand[selected[0]]!, hand[selected[1]]!, hand[selected[2]]!) {
+            if checkIfMatch(hand[selected[0]], hand[selected[1]], hand[selected[2]]) {
                 lastMatch = selected
                 if !hint.containsSameElements(as: selected) {
                     score += 3
@@ -164,12 +164,11 @@ class SetGame {
     }
     
     func forEachInHand(_ perform: (Int, Card) -> () ) {
-        let realHand = hand.enumerated().filter {$0.element != nil}.map{($0.offset, $0.element!)}
-        realHand.forEach(perform)
+        hand.enumerated().forEach(perform)
     }
     
     func reset() {
-        hand = [Card?](repeating: nil, count: 24)
+        hand = [Card]()
         score = 0
         selected = []
         lastMistake = []
@@ -227,9 +226,7 @@ class SetGame {
     }
     
     func addToHand(card: Card) {
-        if let index  = hand.index(where: { $0 == nil }) {
-            hand[index] = card
-        }
+        hand.append(card)
     }
 
     init() {

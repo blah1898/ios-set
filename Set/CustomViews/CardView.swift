@@ -48,7 +48,14 @@ class CardView : UIView {
     }
     
     @IBInspectable
-    var margin: Double = 12.0 {
+    var cardMargin: Double = 12.0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable
+    var margin: Double = 4.0 {
         didSet {
             setNeedsDisplay()
         }
@@ -62,25 +69,18 @@ class CardView : UIView {
     }
     
     @IBInspectable
-    var shadingInterval: Double = 5.0 {
+    var shadingInterval: Double = 4.0 {
         didSet {
             setNeedsDisplay()
         }
     }
     
     @IBInspectable
-    var backgroundRadius: Double = 20.0 {
+    var backgroundRadius: Double = 8.0 {
         didSet {
             setNeedsDisplay()
         }
     }
-    
-    
-//    let colors: [Card.Color: UIColor] = [
-//        Card.Color.black: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
-//        Card.Color.blue: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),
-//        Card.Color.red: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-//    ]
     
     let star = [
         CGPoint(x: 0.5, y: 0),
@@ -105,11 +105,11 @@ class CardView : UIView {
 //    }
     
     override func draw(_ rect: CGRect) {
-        let backgroundPath = UIBezierPath(roundedRect: bounds, cornerRadius: CGFloat(backgroundRadius))
+        let marginBounds = bounds.insetBy(dx: CGFloat(margin), dy: CGFloat(margin))
+        let backgroundPath = UIBezierPath(roundedRect: marginBounds, cornerRadius: CGFloat(backgroundRadius))
         cardBackgroundColor.setFill()
         backgroundPath.fill()
-        
-        let drawAreas = calculateDrawAreas(count: count)
+        let drawAreas = calculateDrawAreas(bounds: marginBounds, count: count)
         
         color.setStroke()
         color.setFill()
@@ -135,6 +135,8 @@ class CardView : UIView {
                 symbolPath.stroke()
                 let shading = shadingPattern(bounds: area, interval: shadingInterval)
                 symbolPath.addClip()
+                
+                shading.lineWidth = CGFloat(0.5);
                 shading.stroke()
                 UIGraphicsGetCurrentContext()!.resetClip()
             case Card.Shading.light.rawValue:
@@ -146,7 +148,7 @@ class CardView : UIView {
 
     }
     
-    private func calculateDrawAreas(count: Int) -> [CGRect] {
+    private func calculateDrawAreas(bounds: CGRect, count: Int) -> [CGRect] {
         // TODO: Burn this method
         let horizontal = bounds.width > bounds.height
         

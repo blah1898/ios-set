@@ -10,8 +10,10 @@ import Foundation
 
 struct Card : Equatable {
     
-    enum Shading {
-        case light, medium, full
+    enum Shading: String {
+        case light = "light"
+        case medium = "medium"
+        case full = "full"
         
         static let all: [Shading] = [.light, .medium, .full]
     }
@@ -39,8 +41,10 @@ struct Card : Equatable {
         }
     }
     
-    enum Symbol {
-        case circle, square, star
+    enum Symbol: String {
+        case circle = "circle"
+        case square = "square"
+        case star = "star"
         
         static let all: [Symbol] = [.circle, .square, .star]
     }

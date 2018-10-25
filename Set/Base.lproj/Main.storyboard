@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,226 +16,23 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YlP-AQ-3BM">
-                                <rect key="frame" x="28" y="50" width="370" height="590.33333333333337"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4ya-hX-cgC">
-                                        <rect key="frame" x="0.0" y="0.0" width="370" height="91.666666666666671"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9b-yJ-UP8" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="cdN-SZ-I0W"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhT-D8-yG8" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="nnt-lG-ciP"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3L-Hc-2bB" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="ifx-6Q-yFD"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T36-oS-uJU" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="2Ww-ex-b9l"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2Mk-AE-hQL">
-                                        <rect key="frame" x="0.0" y="99.666666666666657" width="370" height="91.666666666666657"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFs-Tb-bd1" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="Gai-cW-jfN"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBD-Qg-muk" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="v1Y-0B-hTD"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zuq-Nj-gXe" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="GMw-N5-UCQ"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B5F-VG-d6Z" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="j40-z4-4QH"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8xi-mk-OrY">
-                                        <rect key="frame" x="0.0" y="199.33333333333334" width="370" height="91.666666666666657"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dj-kx-jfn" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="iv2-pZ-e7O"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T6F-fH-z1v" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="RN8-uz-xLy"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="On7-nu-Evu" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="rV0-jq-Lqn"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZt-L0-fBO" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="hra-Tj-Q5s"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oHG-5O-l17">
-                                        <rect key="frame" x="0.0" y="299" width="370" height="91.666666666666686"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="APn-o6-Dmi" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="m6F-5S-TQW"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAe-S0-Tek" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="hMk-Lv-tB0"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKR-Ti-94w" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="WYQ-oS-ooW"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="het-g1-RGg" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="TkT-VK-Gej"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qRF-gP-oL2">
-                                        <rect key="frame" x="0.0" y="398.66666666666669" width="370" height="92"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Njo-wI-oEd" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="92"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="D46-fP-qUi"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QbR-nq-CeJ" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="92"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="5Wn-PU-ohS"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDK-A5-jA0" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="92"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="aJp-bX-eFV"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hws-lE-A74" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="92"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="wLs-zF-1hl"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cHK-5K-aml">
-                                        <rect key="frame" x="0.0" y="498.66666666666669" width="370" height="91.666666666666686"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pgw-Ef-cLy" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.666666666666671" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="bGf-0b-yXS"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oMM-UK-NXS" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="94.666666666666686" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="Vga-bY-GWF"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WG0-Wn-TMn" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="189" y="0.0" width="86.666666666666686" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="CdF-os-Sls"/>
-                                                </connections>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H2u-sL-KMO" customClass="CardView" customModule="Set" customModuleProvider="target">
-                                                <rect key="frame" x="283.66666666666669" y="0.0" width="86.333333333333314" height="91.666666666666671"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <connections>
-                                                    <action selector="tappedCard:" destination="BYZ-38-t0r" eventType="valueChanged" id="5R0-IQ-z4f"/>
-                                                </connections>
-                                            </view>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pdj-K8-lnP">
-                                <rect key="frame" x="16" y="656.33333333333337" width="382" height="63.666666666666629"/>
+                                <rect key="frame" x="16" y="587" width="343" height="64"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="2Mo-JE-2Hi">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="25.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="26"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljm-BZ-V6V">
-                                                <rect key="frame" x="0.0" y="0.0" width="175" height="25.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="155.5" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deck: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOO-No-MYb">
-                                                <rect key="frame" x="207" y="0.0" width="175" height="25.666666666666668"/>
+                                                <rect key="frame" x="187.5" y="0.0" width="155.5" height="26"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -243,17 +40,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="utw-VS-u2b">
-                                        <rect key="frame" x="0.0" y="33.666666666666629" width="382" height="30"/>
+                                        <rect key="frame" x="0.0" y="34" width="343" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mue-rs-8Mf">
-                                                <rect key="frame" x="0.0" y="0.0" width="106" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="93" height="30"/>
                                                 <state key="normal" title="Deal 3 cards"/>
                                                 <connections>
                                                     <action selector="tappedDeal" destination="BYZ-38-t0r" eventType="touchUpInside" id="AhZ-jd-XHq"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sUe-c3-QZs">
-                                                <rect key="frame" x="138" y="0.33333333333337123" width="106" height="29.333333333333332"/>
+                                                <rect key="frame" x="125" y="0.5" width="93" height="29.5"/>
                                                 <state key="normal">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Hint">
@@ -269,7 +66,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trd-aV-z2x">
-                                                <rect key="frame" x="276" y="0.0" width="106" height="30"/>
+                                                <rect key="frame" x="250" y="0.0" width="93" height="30"/>
                                                 <state key="normal" title="Restart"/>
                                                 <connections>
                                                     <action selector="tappedRestart" destination="BYZ-38-t0r" eventType="touchUpInside" id="deq-By-Xnh"/>
@@ -279,52 +76,33 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9vQ-OJ-nOR" customClass="CardCollectionView" customModule="Set" customModuleProvider="target">
+                                <rect key="frame" x="16" y="36" width="343" height="535"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pdj-K8-lnP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="10g-Hw-MXG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pdj-K8-lnP" secondAttribute="trailing" constant="16" id="2WR-Gm-nDF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pdj-K8-lnP" secondAttribute="bottom" constant="16" id="Gzr-nM-UFq"/>
-                            <constraint firstItem="YlP-AQ-3BM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="28" id="IGj-ed-5Iz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YlP-AQ-3BM" secondAttribute="trailing" constant="16" id="SYy-Pv-yhd"/>
-                            <constraint firstItem="YlP-AQ-3BM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="mVX-31-w5K"/>
-                            <constraint firstItem="YlP-AQ-3BM" firstAttribute="bottom" secondItem="pdj-K8-lnP" secondAttribute="top" constant="-16" id="yPi-w7-1C4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pdj-K8-lnP" secondAttribute="bottom" constant="16" id="46a-fa-dF5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pdj-K8-lnP" secondAttribute="trailing" constant="16" id="6iX-ks-oKf"/>
+                            <constraint firstItem="9vQ-OJ-nOR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="7hC-rS-oPy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9vQ-OJ-nOR" secondAttribute="trailing" constant="16" id="Vj8-9g-ccw"/>
+                            <constraint firstItem="pdj-K8-lnP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="aE4-cX-ot4"/>
+                            <constraint firstItem="9vQ-OJ-nOR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="h4o-kI-Yir"/>
+                            <constraint firstItem="pdj-K8-lnP" firstAttribute="top" secondItem="9vQ-OJ-nOR" secondAttribute="bottom" constant="16" id="tpQ-dE-6Rw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cardCollectionView" destination="9vQ-OJ-nOR" id="We6-MI-H26"/>
                         <outlet property="deckLabel" destination="sOO-No-MYb" id="oX5-7H-twv"/>
                         <outlet property="resetButton" destination="Mue-rs-8Mf" id="h4n-vR-hsL"/>
                         <outlet property="scoreLabel" destination="ljm-BZ-V6V" id="KRD-9f-TAa"/>
-                        <outletCollection property="cardViews" destination="S9b-yJ-UP8" collectionClass="NSMutableArray" id="Dmn-5b-IAc"/>
-                        <outletCollection property="cardViews" destination="ZhT-D8-yG8" collectionClass="NSMutableArray" id="qUc-TG-NAM"/>
-                        <outletCollection property="cardViews" destination="a3L-Hc-2bB" collectionClass="NSMutableArray" id="ajR-g2-8fi"/>
-                        <outletCollection property="cardViews" destination="T36-oS-uJU" collectionClass="NSMutableArray" id="Kac-Xi-RT2"/>
-                        <outletCollection property="cardViews" destination="dFs-Tb-bd1" collectionClass="NSMutableArray" id="6rs-rF-sjG"/>
-                        <outletCollection property="cardViews" destination="Zuq-Nj-gXe" collectionClass="NSMutableArray" id="E6U-le-eLZ"/>
-                        <outletCollection property="cardViews" destination="eBD-Qg-muk" collectionClass="NSMutableArray" id="Aia-wN-gWB"/>
-                        <outletCollection property="cardViews" destination="B5F-VG-d6Z" collectionClass="NSMutableArray" id="HnY-K4-zKa"/>
-                        <outletCollection property="cardViews" destination="3dj-kx-jfn" collectionClass="NSMutableArray" id="dd0-nR-Suc"/>
-                        <outletCollection property="cardViews" destination="T6F-fH-z1v" collectionClass="NSMutableArray" id="mHr-QE-x5N"/>
-                        <outletCollection property="cardViews" destination="On7-nu-Evu" collectionClass="NSMutableArray" id="buv-J8-YQi"/>
-                        <outletCollection property="cardViews" destination="FZt-L0-fBO" collectionClass="NSMutableArray" id="tMn-TG-nmt"/>
-                        <outletCollection property="cardViews" destination="APn-o6-Dmi" collectionClass="NSMutableArray" id="GKT-b9-GcZ"/>
-                        <outletCollection property="cardViews" destination="bAe-S0-Tek" collectionClass="NSMutableArray" id="aay-lm-8Jr"/>
-                        <outletCollection property="cardViews" destination="RKR-Ti-94w" collectionClass="NSMutableArray" id="b0u-ca-HaM"/>
-                        <outletCollection property="cardViews" destination="het-g1-RGg" collectionClass="NSMutableArray" id="5aB-0h-ydU"/>
-                        <outletCollection property="cardViews" destination="Njo-wI-oEd" collectionClass="NSMutableArray" id="epl-Le-rlA"/>
-                        <outletCollection property="cardViews" destination="QbR-nq-CeJ" collectionClass="NSMutableArray" id="Fi7-Yf-um8"/>
-                        <outletCollection property="cardViews" destination="dDK-A5-jA0" collectionClass="NSMutableArray" id="VCd-GM-s5U"/>
-                        <outletCollection property="cardViews" destination="hws-lE-A74" collectionClass="NSMutableArray" id="S14-Ct-kro"/>
-                        <outletCollection property="cardViews" destination="pgw-Ef-cLy" collectionClass="NSMutableArray" id="aP3-RD-rXO"/>
-                        <outletCollection property="cardViews" destination="oMM-UK-NXS" collectionClass="NSMutableArray" id="GtA-8h-nCg"/>
-                        <outletCollection property="cardViews" destination="WG0-Wn-TMn" collectionClass="NSMutableArray" id="kze-C9-fDO"/>
-                        <outletCollection property="cardViews" destination="H2u-sL-KMO" collectionClass="NSMutableArray" id="TTv-x3-K65"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.39130434782609" y="118.20652173913044"/>
+            <point key="canvasLocation" x="117.39130434782609" y="117.85714285714285"/>
         </scene>
     </scenes>
 </document>

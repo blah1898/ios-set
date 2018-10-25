@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E107B9A72182245E002992A2 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E107B9A62182245E002992A2 /* Grid.swift */; };
 		E170D129215BF5360019CC3E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170D128215BF5360019CC3E /* CardView.swift */; };
 		E1777FEF21419192005A084D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1777FEE21419192005A084D /* AppDelegate.swift */; };
 		E1777FF121419192005A084D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1777FF021419192005A084D /* ViewController.swift */; };
@@ -15,9 +16,11 @@
 		E1777FF92141919B005A084D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1777FF72141919B005A084D /* LaunchScreen.storyboard */; };
 		E1A0E67F214ACBC600C05FED /* SetGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A0E67E214ACBC600C05FED /* SetGame.swift */; };
 		E1A0E681214ACC4900C05FED /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A0E680214ACC4900C05FED /* Card.swift */; };
+		E1A565382180E6EB0014D763 /* CardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A565372180E6EB0014D763 /* CardCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E107B9A62182245E002992A2 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		E170D128215BF5360019CC3E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E1777FEB21419192005A084D /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1777FEE21419192005A084D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +31,7 @@
 		E1777FFA2141919B005A084D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1A0E67E214ACBC600C05FED /* SetGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGame.swift; sourceTree = "<group>"; };
 		E1A0E680214ACC4900C05FED /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		E1A565372180E6EB0014D763 /* CardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				E170D128215BF5360019CC3E /* CardView.swift */,
+				E1A565372180E6EB0014D763 /* CardCollectionView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -68,6 +73,7 @@
 		E1777FED21419192005A084D /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				E107B9A62182245E002992A2 /* Grid.swift */,
 				E170D127215BF4F00019CC3E /* CustomViews */,
 				E1777FEE21419192005A084D /* AppDelegate.swift */,
 				E1777FF021419192005A084D /* ViewController.swift */,
@@ -157,6 +163,8 @@
 				E1A0E67F214ACBC600C05FED /* SetGame.swift in Sources */,
 				E1777FEF21419192005A084D /* AppDelegate.swift in Sources */,
 				E170D129215BF5360019CC3E /* CardView.swift in Sources */,
+				E1A565382180E6EB0014D763 /* CardCollectionView.swift in Sources */,
+				E107B9A72182245E002992A2 /* Grid.swift in Sources */,
 				E1A0E681214ACC4900C05FED /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
