@@ -12,11 +12,75 @@ import UIKit
 @IBDesignable
 class CardView : UIView {
     
-    let colors: [Card.Color: UIColor] = [
-        Card.Color.black: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
-        Card.Color.blue: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),
-        Card.Color.red: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-    ]
+    @IBInspectable
+    var cardBackgroundColor: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var color: UIColor = UIColor.black {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var count: Int = 1 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var shading: String = "full" {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var symbol: String = "star" {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var margin: Double = 12.0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var spacing: Double = 6.0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var shadingInterval: Double = 5.0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var backgroundRadius: Double = 20.0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    
+//    let colors: [Card.Color: UIColor] = [
+//        Card.Color.black: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
+//        Card.Color.blue: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1),
+//        Card.Color.red: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+//    ]
     
     let star = [
         CGPoint(x: 0.5, y: 0),
@@ -31,55 +95,52 @@ class CardView : UIView {
         CGPoint(x: 0.35, y: 0.35)
     ]
     
-    let margin = 12.0
-    let spacing = 6.0
-    let shadingInterval = 5.0
-    
-    var card: Card? = nil {
-        didSet {
-            setNeedsDisplay()
-            setNeedsLayout()
-        }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setNeedsDisplay()
-        setNeedsLayout()
-    }
-    
-    override func draw(_ rect: CGRect) {        
-        if let drawingCard = card {
-            
-            let drawAreas = calculateDrawAreas(count: drawingCard.count.value)
-            
-            colors[drawingCard.color]!.setStroke()
-            colors[drawingCard.color]!.setFill()
-            
-            for area in drawAreas {
-                let symbolPath: UIBezierPath;
-                switch(drawingCard.symbol) {
-                case .circle:
-                    symbolPath = circlePath(bounds: area)
-                case .square:
-                    symbolPath = squarePath(bounds: area)
-                case .star:
-                    symbolPath = starPath(bounds: area)
-                }
-                
 
-                switch(drawingCard.shading) {
-                case .full:
-                    symbolPath.fill()
-                case .medium:
-                    symbolPath.stroke()
-                    let shading = shadingPattern(bounds: area, interval: shadingInterval)
-                    symbolPath.addClip()
-                    shading.stroke()
-                    UIGraphicsGetCurrentContext()!.resetClip()
-                case .light:
-                    symbolPath.stroke()
-                }
+    
+//    var card: Card? = nil {
+//        didSet {
+//            setNeedsDisplay()
+//            setNeedsLayout()
+//        }
+//    }
+    
+    override func draw(_ rect: CGRect) {
+        let backgroundPath = UIBezierPath(roundedRect: bounds, cornerRadius: CGFloat(backgroundRadius))
+        cardBackgroundColor.setFill()
+        backgroundPath.fill()
+        
+        let drawAreas = calculateDrawAreas(count: count)
+        
+        color.setStroke()
+        color.setFill()
+        
+        for area in drawAreas {
+            let symbolPath: UIBezierPath;
+            switch(symbol) {
+            case Card.Symbol.circle.rawValue:
+                symbolPath = circlePath(bounds: area)
+            case Card.Symbol.square.rawValue:
+                symbolPath = squarePath(bounds: area)
+            case Card.Symbol.star.rawValue:
+                symbolPath = starPath(bounds: area)
+            default:
+                return
+            }
+            
+
+            switch(shading) {
+            case Card.Shading.full.rawValue:
+                symbolPath.fill()
+            case Card.Shading.medium.rawValue:
+                symbolPath.stroke()
+                let shading = shadingPattern(bounds: area, interval: shadingInterval)
+                symbolPath.addClip()
+                shading.stroke()
+                UIGraphicsGetCurrentContext()!.resetClip()
+            case Card.Shading.light.rawValue:
+                symbolPath.stroke()
+            default:
+                return
             }
         }
 
@@ -239,6 +300,7 @@ class CardView : UIView {
         
         return path
     }
+    
 }
 
 
