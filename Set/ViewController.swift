@@ -17,20 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var cardCollectionView: CardCollectionView!
     
     let game = SetGame();
-    
+        
     @IBAction func tappedCheat(_ sender: Any) {
         game.getHint()
-        updateViewFromModel()
-    }
-    
-    @IBAction func tappedCard(_ sender: CardView) {
-        print("Taped \(sender)")
-        /*
-        if let index = cardViews.index(of: sender) {
-            print("  index: \(index)")
-            game.pickCard(at: index)
-        }
-         */
         updateViewFromModel()
     }
     
@@ -47,9 +36,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         updateViewFromModel()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func cardTapped(_ sender: UITapGestureRecognizer) {
+        guard sender.view != nil else { return }
+        
+        if let tappedIndex = cardCollectionView.subviews.firstIndex(of: sender.view!) {
+            game.pickCard(at: tappedIndex)
+            updateViewFromModel()
+        }
     }
     
     let colors: [Card.Color: UIColor] = [
@@ -68,6 +67,7 @@ class ViewController: UIViewController {
                 let newCard = CardView(frame: CGRect.zero)
                 newCard.isOpaque = false
                 newCard.layoutMargins = UIEdgeInsets(top: CGFloat(8.0), left: CGFloat(8.0), bottom: CGFloat(8.0), right: CGFloat(8.0))
+                newCard.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ViewController.cardTapped)))
                 cardCollectionView.addSubview(newCard)
             }
         } else {
@@ -93,6 +93,22 @@ class ViewController: UIViewController {
             
             // Shading
             cardView.shading = card.shading.rawValue
+            
+            // Is it selected
+            if game.selected.contains(index) {
+                cardView.cardBackgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+            // Is it a mismatch
+            } else if game.lastMistake.contains(index) {
+                cardView.cardBackgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+            // Is it a match
+            } else if game.lastMatch.contains(index) {
+                cardView.cardBackgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+            // Are we hinting at it
+            } else if game.hint.contains(index) {
+                cardView.cardBackgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            } else {
+                cardView.cardBackgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            }
             
         }
         
