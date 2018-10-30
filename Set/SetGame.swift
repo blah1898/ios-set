@@ -36,21 +36,26 @@ class SetGame {
         if (!hand.indices.contains(index)) {
             return
         }
+        
+        
         removeLastMatch()
         if lastMatch.contains(index) {
             lastMatch = [];
             return;
         }
+        // Adjust for the cards we're removing, as index will change
+        let adjustedIndex = index - lastMatch.filter{$0 < index}.count
+        
         lastMistake = []
         lastMatch = []
         
         // If we're selecting an already selected element, remove it from selection
-        if let alreadyExistingIndex = selected.index(of: index) {
+        if let alreadyExistingIndex = selected.index(of: adjustedIndex) {
             selected.remove(at: alreadyExistingIndex)
             return
         }
         
-        selected.append(index)
+        selected.append(adjustedIndex)
         
         if selected.count == 3 {
             if checkIfMatch(hand[selected[0]], hand[selected[1]], hand[selected[2]]) {
@@ -77,9 +82,9 @@ class SetGame {
     }
     
     private func findPossibleMatch() -> [Int]? {
-        var match = [Int]()
+        var match : [Int]? = nil
         forEachInHand { index1, card1 in
-            if match != [] {
+            if match != nil {
                 return
             }
             
@@ -88,11 +93,11 @@ class SetGame {
                     return
                 }
                 
-                if match != [] {
+                if match != nil {
                     return
                 }
                 forEachInHand { index3, card3 in
-                    if match != [] {
+                    if match != nil {
                         return
                     }
                     
