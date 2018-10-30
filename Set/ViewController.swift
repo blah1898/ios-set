@@ -37,6 +37,12 @@ class ViewController: UIViewController {
         updateViewFromModel()
         
         view.addGestureRecognizer(UIRotationGestureRecognizer(target: self, action: #selector(self.rotatedHand)))
+        
+        let swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(self.swipeDown))
+        
+        swipeGesture.direction = .down
+        
+        view.addGestureRecognizer(swipeGesture)
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,7 +65,17 @@ class ViewController: UIViewController {
             updateViewFromModel()
         }
     }
+    
+    @objc func swipeDown(_ sender: UISwipeGestureRecognizer) {
+        guard sender.view != nil else { return }
         
+        
+        if (game.canDeal) {
+            game.deal()
+            updateViewFromModel()
+        }
+    }
+    
     @objc func cardTapped(_ sender: UITapGestureRecognizer) {
         guard sender.view != nil else { return }
         
