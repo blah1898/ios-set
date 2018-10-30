@@ -35,6 +35,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         updateViewFromModel()
+        
+        view.addGestureRecognizer(UIRotationGestureRecognizer(target: self, action: #selector(self.rotatedHand)))
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,6 +44,22 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func rotatedHand(_ sender: UIRotationGestureRecognizer) {
+        guard sender.view != nil else { return }
+        
+        print("Rotation: \(sender.rotation)")
+        print("Velocity: \(sender.velocity)")
+        
+        if ( CGFloat.abs(sender.rotation) > CGFloat.pi * CGFloat(0.25) || CGFloat(sender.velocity) > CGFloat(5)) {
+            game.shuffleHand()
+            sender.rotation = CGFloat(0)
+            // This trick cancels the current event
+            sender.isEnabled = false
+            sender.isEnabled = true
+            updateViewFromModel()
+        }
+    }
+        
     @objc func cardTapped(_ sender: UITapGestureRecognizer) {
         guard sender.view != nil else { return }
         
@@ -67,7 +85,7 @@ class ViewController: UIViewController {
                 let newCard = CardView(frame: CGRect.zero)
                 newCard.isOpaque = false
                 newCard.layoutMargins = UIEdgeInsets(top: CGFloat(8.0), left: CGFloat(8.0), bottom: CGFloat(8.0), right: CGFloat(8.0))
-                newCard.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ViewController.cardTapped)))
+                newCard.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.cardTapped)))
                 cardCollectionView.addSubview(newCard)
             }
         } else {
@@ -115,40 +133,11 @@ class ViewController: UIViewController {
         deckLabel.text = "Deck: \(game.deck.count)"
         scoreLabel.text = "Score: \(game.score)"
         resetButton.isEnabled = game.canDeal
-        
-        /*
-        for (index, cardView) in cardViews.enumerated() {
-            
-            let optionalCard = game.hand.indices.contains(index)
-                ? game.hand[index]
-                : nil
-            
-            cardView.card = optionalCard
-            if let card = optionalCard {
-                cardView.card = card
-                if game.selected.contains(index) {
-                    cardView.layer.shadowOpacity = 1.0
-                    cardView.layer.shadowColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-                } else if game.lastMistake.contains(index) {
-                    cardView.layer.shadowOpacity = 1.0
-                    cardView.layer.shadowColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-                } else if game.lastMatch.contains(index) {
-                    cardView.layer.shadowOpacity = 1.0
-                    cardView.layer.shadowColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-                } else if game.hint.contains(index) {
-                    cardView.layer.shadowOpacity = 1.0
-                    cardView.layer.shadowColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
-                } else {
-                    cardView.layer.shadowOpacity = 0.0
-                }
-            } else {
-                cardView.layer.shadowOpacity = 0.0
-            }
-        }
-        
-        deckLabel.text = "Deck: \(game.deck.count)"
-        scoreLabel.text = "Score: \(game.score)"
-        resetButton.isEnabled = game.canDeal
-        */
+    }
+}
+
+extension CGFloat {
+    public static func abs(_ val: CGFloat) -> CGFloat {
+        return val >= CGFloat(0) ? val : -val
     }
 }

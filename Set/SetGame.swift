@@ -116,6 +116,10 @@ class SetGame {
         return match
     }
     
+    func shuffleHand() {
+        hand.shuffle()
+    }
+    
     func checkIfMatch(_ card1: Card, _ card2: Card, _ card3: Card) -> Bool{
         var colorMatched    = false
         var shadingMatched  = false
