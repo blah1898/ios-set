@@ -117,6 +117,10 @@ class SetGame {
     }
     
     func shuffleHand() {
+        removeLastMatch();
+        selected = [];
+        lastMatch = [];
+        hint = [];
         hand.shuffle()
     }
     
