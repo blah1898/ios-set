@@ -41,7 +41,7 @@ class CardView : UIView {
     }
     
     @IBInspectable
-    var symbol: String = "star" {
+    var shape: String = "star" {
         didSet {
             setNeedsDisplay()
         }
@@ -115,14 +115,14 @@ class CardView : UIView {
         color.setFill()
         
         for area in drawAreas {
-            let symbolPath: UIBezierPath;
-            switch(symbol) {
-            case Card.Symbol.circle.rawValue:
-                symbolPath = circlePath(bounds: area)
-            case Card.Symbol.square.rawValue:
-                symbolPath = squarePath(bounds: area)
-            case Card.Symbol.star.rawValue:
-                symbolPath = starPath(bounds: area)
+            let shapePath: UIBezierPath;
+            switch(shape) {
+            case Card.Shape.circle.rawValue:
+                shapePath = circlePath(bounds: area)
+            case Card.Shape.square.rawValue:
+                shapePath = squarePath(bounds: area)
+            case Card.Shape.star.rawValue:
+                shapePath = starPath(bounds: area)
             default:
                 return
             }
@@ -130,17 +130,17 @@ class CardView : UIView {
 
             switch(shading) {
             case Card.Shading.full.rawValue:
-                symbolPath.fill()
+                shapePath.fill()
             case Card.Shading.medium.rawValue:
-                symbolPath.stroke()
+                shapePath.stroke()
                 let shading = shadingPattern(bounds: area, interval: shadingInterval)
-                symbolPath.addClip()
+                shapePath.addClip()
                 
                 shading.lineWidth = CGFloat(0.5);
                 shading.stroke()
                 UIGraphicsGetCurrentContext()!.resetClip()
             case Card.Shading.light.rawValue:
-                symbolPath.stroke()
+                shapePath.stroke()
             default:
                 return
             }

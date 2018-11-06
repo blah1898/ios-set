@@ -116,11 +116,11 @@ class ViewController: UIViewController {
             
             let card = game.hand[index]
             
-            // Symbol
-            cardView.symbol = card.symbol.rawValue
+            // shape
+            cardView.shape = card.shape.rawValue
             
             // Count
-            cardView.count = card.count.value
+            cardView.count = card.count.rawValue
             
             // Color
             cardView.color = colors[card.color]!

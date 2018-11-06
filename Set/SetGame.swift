@@ -8,6 +8,12 @@
 
 import Foundation
 
+/**
+  Represents a game of Set
+ 
+  - Author
+  Bruce Hernández Gudiño
+*/
 class SetGame {
     
     private(set)    var deck = [Card]()
@@ -36,7 +42,6 @@ class SetGame {
         if (!hand.indices.contains(index)) {
             return
         }
-        
         
         removeLastMatch()
         if lastMatch.contains(index) {
@@ -127,7 +132,7 @@ class SetGame {
     func checkIfMatch(_ card1: Card, _ card2: Card, _ card3: Card) -> Bool{
         var colorMatched    = false
         var shadingMatched  = false
-        var symbolMatched   = false
+        var shapeMatched   = false
         var countMatched    = false
         // Color
         if card1.color == card2.color && card2.color == card3.color {
@@ -151,14 +156,14 @@ class SetGame {
             return false
         }
         
-        // symbol
-        if card1.symbol == card2.symbol && card2.symbol == card3.symbol {
-            symbolMatched = true
-        } else if card1.symbol != card2.symbol && card2.symbol != card3.symbol && card1.symbol != card3.symbol {
-            symbolMatched = true
+        // shape
+        if card1.shape == card2.shape && card2.shape == card3.shape {
+            shapeMatched = true
+        } else if card1.shape != card2.shape && card2.shape != card3.shape && card1.shape != card3.shape {
+            shapeMatched = true
         }
         
-        if !symbolMatched {
+        if !shapeMatched {
             return false
         }
         
@@ -228,8 +233,8 @@ class SetGame {
         for color in Card.Color.all {
             for shading in Card.Shading.all {
                 for count in Card.Count.all {
-                    for symbol in Card.Symbol.all {
-                        newDeck.append(Card(color: color, shading: shading, count: count, symbol: symbol))
+                    for shape in Card.Shape.all {
+                        newDeck.append(Card(color: color, shading: shading, count: count, shape: shape))
                     }
                 }
             }
