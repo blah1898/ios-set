@@ -45,6 +45,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E11E428D21935DC500AED078 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		E170D127215BF4F00019CC3E /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +80,7 @@
 		E1777FED21419192005A084D /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				E11E428D21935DC500AED078 /* Animations */,
 				E107B9A62182245E002992A2 /* Grid.swift */,
 				E170D127215BF4F00019CC3E /* CustomViews */,
 				E1777FEE21419192005A084D /* AppDelegate.swift */,
