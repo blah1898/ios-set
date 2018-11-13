@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class CardCollectionView : UIView {
+class CardCollectionView : UICollectionView {
     
     private var grid = Grid(layout: Grid.Layout.aspectRatio(CGFloat(5.0/7.0)))
     
