@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E107B9A72182245E002992A2 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E107B9A62182245E002992A2 /* Grid.swift */; };
+		E11457C321AF0AD40034AE46 /* DiscardAnimationBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = E11457C221AF0AD40034AE46 /* DiscardAnimationBehaviour.swift */; };
 		E170D129215BF5360019CC3E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E170D128215BF5360019CC3E /* CardView.swift */; };
 		E1777FEF21419192005A084D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1777FEE21419192005A084D /* AppDelegate.swift */; };
 		E1777FF121419192005A084D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1777FF021419192005A084D /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		E107B9A62182245E002992A2 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		E11457C221AF0AD40034AE46 /* DiscardAnimationBehaviour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscardAnimationBehaviour.swift; sourceTree = "<group>"; };
 		E170D128215BF5360019CC3E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		E1777FEB21419192005A084D /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1777FEE21419192005A084D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +50,7 @@
 		E11E428D21935DC500AED078 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				E11457C221AF0AD40034AE46 /* DiscardAnimationBehaviour.swift */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1777FF121419192005A084D /* ViewController.swift in Sources */,
+				E11457C321AF0AD40034AE46 /* DiscardAnimationBehaviour.swift in Sources */,
 				E1A0E67F214ACBC600C05FED /* SetGame.swift in Sources */,
 				E1777FEF21419192005A084D /* AppDelegate.swift in Sources */,
 				E170D129215BF5360019CC3E /* CardView.swift in Sources */,

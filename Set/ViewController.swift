@@ -13,7 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var deckLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var discardPile: UIView!
+    @IBOutlet weak var deckPile: UIView!
     
+    var lastRemoved = [Int]()
+
     @IBOutlet weak var cardCollectionView: CardCollectionView!
     
     let game = SetGame();
@@ -25,6 +29,7 @@ class ViewController: UIViewController {
     
     @IBAction func tappedRestart() {
         game.reset()
+        cardCollectionView.reset()
         updateViewFromModel()
     }
     
@@ -92,6 +97,8 @@ class ViewController: UIViewController {
     ]
     
     func updateViewFromModel() {
+        cardCollectionView.cardSpawnPoint = cardCollectionView.convert(deckPile.bounds, from: deckPile);
+        cardCollectionView.cardDiscardPoint = cardCollectionView.convert(discardPile.bounds, from: discardPile);
         // Make card counts equal
         let difference = cardCollectionView.subviews.count - game.hand.count
         
@@ -102,50 +109,51 @@ class ViewController: UIViewController {
                 newCard.isOpaque = false
                 newCard.layoutMargins = UIEdgeInsets(top: CGFloat(8.0), left: CGFloat(8.0), bottom: CGFloat(8.0), right: CGFloat(8.0))
                 newCard.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.cardTapped)))
-                cardCollectionView.addSubview(newCard)
+                cardCollectionView.addCard(newCard)
             }
         } else {
             // There's less cards in our hand than in view
-            for _ in 0..<difference {
-                cardCollectionView.subviews[0].removeFromSuperview()
+            for cardIndex in lastRemoved.sorted(by: {$0 > $1}) {
+                cardCollectionView.discardCard(cardCollectionView.cards[cardIndex])
             }
         }
         
-        for (index, view) in cardCollectionView.subviews.enumerated() {
-            if let cardView = view as? CardView {
-                
-                let card = game.hand[index]
-                
-                // shape
-                cardView.shape = card.shape.rawValue
-                
-                // Count
-                cardView.count = card.count.rawValue
-                
-                // Color
-                cardView.color = colors[card.color]!
-                
-                // Shading
-                cardView.shading = card.shading.rawValue
-                
-                // Is it selected
-                if game.selected.contains(index) {
-                    ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1))
-                    //cardView.cardBackgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-                // Is it a mismatch
-                } else if game.lastMistake.contains(index) {
-                    ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1))
-                // Is it a match
-                } else if game.lastMatch.contains(index) {
-                    ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1))
-                // Are we hinting at it
-                } else if game.hint.contains(index) {
-                    ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1))
-                } else {
-                    ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-                }
+        cardCollectionView.animateCards();
+        
+        for (index, cardView) in cardCollectionView.cards.enumerated() {
+            let card = game.hand[index]
+            
+            // shape
+            cardView.shape = card.shape.rawValue
+            
+            // Count
+            cardView.count = card.count.rawValue
+            
+            // Color
+            cardView.color = colors[card.color]!
+            
+            // Shading
+            cardView.shading = card.shading.rawValue
+            
+            // Is it selected
+            if game.selected.contains(index) {
+                ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1))
+                //cardView.cardBackgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+            // Is it a mismatch
+            } else if game.lastMistake.contains(index) {
+                ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1))
+            // Is it a match
+            } else if game.lastMatch.contains(index) {
+                ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1))
+            // Are we hinting at it
+            } else if game.hint.contains(index) {
+                ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1))
+            } else {
+                ViewController.animate(card: cardView, withColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
             }
         }
+        
+        lastRemoved = game.lastMatch
         
         deckLabel.text = "Deck: \(game.deck.count)"
         scoreLabel.text = "Score: \(game.score)"

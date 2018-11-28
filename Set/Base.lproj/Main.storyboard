@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,10 +25,10 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="49D-Fe-VKd">
                                 <rect key="frame" x="16" y="493" width="343" height="158"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyA-DV-uaA">
+                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fyA-DV-uaA">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="128"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4z-KM-obJ">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4z-KM-obJ">
                                                 <rect key="frame" x="64" y="4" width="85.5" height="120"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9JK-7q-Xyj">
@@ -46,9 +46,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <connections>
-                                                                    <outletCollection property="gestureRecognizers" destination="kVL-IF-z9O" appends="YES" id="bnE-GN-9Jz"/>
-                                                                </connections>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
@@ -70,7 +67,7 @@
                                                     <outletCollection property="gestureRecognizers" destination="kVL-IF-z9O" appends="YES" id="6Zs-9g-NM2"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIi-vw-baW">
+                                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIi-vw-baW">
                                                 <rect key="frame" x="193.5" y="4" width="85.5" height="120"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzr-Ey-jR1">
@@ -94,7 +91,6 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="YIi-vw-baW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="h4z-KM-obJ" secondAttribute="trailing" constant="16" id="5uI-Zo-Bej"/>
                                             <constraint firstAttribute="trailing" secondItem="YIi-vw-baW" secondAttribute="trailing" constant="64" id="dfh-77-Dda"/>
@@ -149,6 +145,8 @@
                     <connections>
                         <outlet property="cardCollectionView" destination="9vQ-OJ-nOR" id="We6-MI-H26"/>
                         <outlet property="deckLabel" destination="WIF-ro-2H5" id="uTj-gv-lgs"/>
+                        <outlet property="deckPile" destination="h4z-KM-obJ" id="spC-2B-M9u"/>
+                        <outlet property="discardPile" destination="YIi-vw-baW" id="UHW-yG-v4j"/>
                         <outlet property="resetButton" destination="2tj-A2-3qN" id="Mn8-VM-8Zp"/>
                         <outlet property="scoreLabel" destination="It8-IX-mXd" id="4qT-kD-T4Z"/>
                     </connections>
